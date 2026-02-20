@@ -278,41 +278,7 @@
 
         // 初始化遊戲板
         function initializeGame() {
-        // 播放歡迎煙火動畫
-        function playWelcomeFireworks() {
-            const container = document.querySelector('.container');
-            for (let i = 0; i < 30; i++) {
-                const firework = document.createElement('div');
-                firework.style.position = 'fixed';
-                firework.style.width = '10px';
-                firework.style.height = '10px';
-                firework.style.background = ['#667eea', '#764ba2', '#FFD700', '#FF6B6B'][Math.floor(Math.random() * 4)];
-                firework.style.borderRadius = '50%';
-                firework.style.pointerEvents = 'none';
-                firework.style.left = (container.offsetLeft + container.offsetWidth / 2) + 'px';
-                firework.style.top = (container.offsetTop + container.offsetHeight / 2) + 'px';
-                document.body.appendChild(firework);
-
-                const angle = (Math.PI * 2 * i) / 30;
-                const velocity = 5 + Math.random() * 5;
-                let x = 0, y = 0;
-
-                const animate = () => {
-                    x += Math.cos(angle) * velocity;
-                    y += Math.sin(angle) * velocity - 0.2;
-                    firework.style.left = (container.offsetLeft + container.offsetWidth / 2 + x) + 'px';
-                    firework.style.top = (container.offsetTop + container.offsetHeight / 2 + y) + 'px';
-                    firework.style.opacity = Math.max(0, 1 - Date.now() % 1000 / 1000);
-
-                    if (Date.now() % 1000 < 100) {
-                        firework.remove();
-                    } else {
-                        requestAnimationFrame(animate);
-                    }
-                };
-                animate();
-            }
-        }
+        
             const gameBoard = document.getElementById('gameBoard');
             gameBoard.innerHTML = '';
 
